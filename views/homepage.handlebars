@@ -1,24 +1,77 @@
-<!-- Loop over each object in the projects array -->
-{{#each projects as |project| }}
-<div class="row mb-4 project">
-  <div class="col-md-5">
-    <h2>
-      <!-- Call helper function with triple brackets to render the emoji span as HTML -->
-      {{{get_emoji}}}
-      <a href="/project/{{project.id}}">{{project.name}}</a>
-    </h2>
-    <p>
-      <span for="img" aria-label="money">💲</span>
-      <!-- Pass needed_funding value to the helper function -->
-      <span class="dollar-amount">{{format_amount project.needed_funding}}</span>
-      needed!
-    </p>
-    <p>Created by {{project.user.name}} on {{format_date project.date_created}}</p>
+{{#if loggedIn}}
+{{!-- To search for movies --}}
+<div class="movie-card">
+  <p>Movie Title</p>
+  <p>{{user-rating}}</p>
+  <img src="" alt="">
+  <p>Description</p>
+  <p>Extra Info</p>
+</div>
+
+{{/each}}
+
+<div class="star-rating">
+  <ion-icon name="star-outline" class="star-icon"></ion-icon>
+  <label class="radio">
+    <input type="radio" name="answer" value="5">
+    5
+  </label>
+  <ion-icon name="star-outline" class="star-icon"></ion-icon>
+  <label class="radio">
+    <input type="radio" name="answer" value="4">
+    4
+  </label>
+  <ion-icon name="star-outline" class="star-icon"></ion-icon>
+  <label class="radio">
+    <input type="radio" name="answer" value="3">
+    3
+  </label>
+  <ion-icon name="star-outline" class="star-icon"></ion-icon>
+  <label class="radio">
+    <input type="radio" name="answer" value="2">
+    2
+  </label>
+  <ion-icon name="star-outline" class="star-icon"></ion-icon>
+  <label class="radio">
+    <input type="radio" name="answer" value="1">
+    1
+  </label>
+</div>
+
+
+<div class="carousel">
+  <div class="card">
+  <div class="card-image">
+    <figure class="image is-4by3">
+      <img src="https://bulma.io/images/placeholders/1280x960.png" alt="Placeholder image">
+    </figure>
   </div>
-  <div class="col-md-7">
-    <p>
-      {{project.description}}
-    </p>
+  <div class="card-content">
+    <div class="media">
+      <div class="media-left">
+        <figure class="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
+        </figure>
+      </div>
+      <div class="media-content">
+        <p class="title is-4">John Smith</p>
+        <p class="subtitle is-6">@johnsmith</p>
+      </div>
+    </div>
+
+    <div class="content">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      Phasellus nec iaculis mauris. <a>@bulmaio</a>.
+      <a href="#">#css</a> <a href="#">#responsive</a>
+      <br>
+      <time datetime="2016-1-1">11:09 PM - 1 Jan 2016</time>
+    </div>
   </div>
 </div>
-{{/each}}
+</div>
+
+{{else}}
+<p>Login in to review movies</p>
+<a href="./login.handlebars">Login or Signup</a>
+{{/if}}
+

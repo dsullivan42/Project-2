@@ -1,15 +1,36 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
 
-Project.init(
+
+
+
+class Movie extends Model {}
+
+Movie.init(
+
   {
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true,
+    },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    poster: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    release_date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imdb_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     name: {
       type: DataTypes.STRING,
@@ -40,8 +61,20 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+
+    modelName: 'movie',
   }
 );
 
-module.exports = Project;
+bulmaCarousel.attach('#carousel', {
+  slidesToScroll: 1,
+
+  slidestoShow: 4,
+
+  navigation: true,
+
+  loop: true,
+});
+
+module.exports = Movie;
+
