@@ -44,4 +44,14 @@ Project.init(
   }
 );
 
+bulmaCarousel.attach('#carousel', {
+  slidesToScroll: 1,
+
+  slidestoShow: 4,
+
+  navigation: true,
+
+  loop: true,
+});
+
 module.exports = Project;
