@@ -16,6 +16,22 @@ Movie.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    title: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    poster: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    release_date: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    imdb_id: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     name: {
       type: DataTypes.STRING,
       allowNull: false,
