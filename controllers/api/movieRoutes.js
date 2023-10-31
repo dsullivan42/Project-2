@@ -1,3 +1,4 @@
+
 const fetch = require('node-fetch');
 const router = require('express').Router();
 const { Movie } = require('../../models');
@@ -23,3 +24,4 @@ async function fetchData() {
 
 fetchData();
 module.exports = Movie;
+

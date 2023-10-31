@@ -1,9 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+
+
+
+
 class Movie extends Model {}
 
 Movie.init(
+
   {
     id: {
       type: DataTypes.INTEGER,
@@ -40,8 +45,20 @@ Movie.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
+
     modelName: 'movie',
   }
 );
 
+bulmaCarousel.attach('#carousel', {
+  slidesToScroll: 1,
+
+  slidestoShow: 4,
+
+  navigation: true,
+
+  loop: true,
+});
+
 module.exports = Movie;
+
