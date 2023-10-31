@@ -1,9 +1,14 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Project extends Model {}
 
-Project.init(
+
+
+
+class Movie extends Model {}
+
+Movie.init(
+
   {
     id: {
       type: DataTypes.INTEGER,
@@ -40,7 +45,8 @@ Project.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+
+    modelName: 'movie',
   }
 );
 
@@ -54,4 +60,5 @@ bulmaCarousel.attach('#carousel', {
   loop: true,
 });
 
-module.exports = Project;
+module.exports = Movie;
+
