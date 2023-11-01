@@ -27,6 +27,19 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get("/movie", async (req, res) => {
+  try {
+    const movieData = await Movie.findAll();
+    const movies = movieData.map((movie) => movie.get({plain: true}));
+    res.render('movie', {
+      movies,
+      // logged_in: req.session.logged_in
+    })
+  } catch(err) {
+    res.status(500).json(err);
+  }
+})
+
 //might be better to rewrite the code below to be a search function
 // router.get('/movies/:id', async (req, res) => {
 //   try {

@@ -32,29 +32,11 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
+
+    type: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+  
   },
   {
     sequelize,
@@ -62,19 +44,19 @@ Movie.init(
     freezeTableName: true,
     underscored: true,
 
-    modelName: 'movie',
+    modelName: 'Movie',
   }
 );
 
-bulmaCarousel.attach('#carousel', {
-  slidesToScroll: 1,
+// bulmaCarousel.attach('#carousel', {
+//   slidesToScroll: 1,
 
-  slidestoShow: 4,
+//   slidestoShow: 4,
 
-  navigation: true,
+//   navigation: true,
 
-  loop: true,
-});
+//   loop: true,
+// });
 
 module.exports = Movie;
 

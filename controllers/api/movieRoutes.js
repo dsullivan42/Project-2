@@ -1,8 +1,8 @@
-
 const fetch = require('node-fetch');
 const router = require('express').Router();
-const { Movie } = require('../../models');
-const userSearch = 'Jaws'
+const { Movie } = require('../../models')
+const movieData = []
+const userSearch = 'Frozen'
 const url = 'https://movie-database-alternative.p.rapidapi.com/?s='+userSearch+'&r=json&page=1';
 const options = {
   method: 'GET',
@@ -12,16 +12,34 @@ const options = {
   }
 };
 
-async function fetchData() {
+
+router.post('/', async (req, res) => {
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
-    console.log(result);
-  } catch (error) {
-    console.error(error);
-  }
-}
+    const result = await response.json();
 
-fetchData();
-module.exports = Movie;
+    // Clear the movieData array before populating it
+    movieData.length = 0;
+
+    result.Search.forEach(movie => {
+      // Create an object for each movie and push it into the array
+      movieData.push({
+        title: movie.Title,
+        poster: movie.Poster,
+        release_date: movie.Year,
+        imdb_id: movie.imdbID,
+        type: movie.Type,
+      });
+    });
+    
+    const createdMovies = await Movie.bulkCreate(movieData)
+
+    // Respond with the populated movieData array
+    res.json(createdMovies);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+module.exports = router; 
 
