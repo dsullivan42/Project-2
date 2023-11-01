@@ -1,7 +1,6 @@
-
 const fetch = require('node-fetch');
 const router = require('express').Router();
-const { Movie } = require('../../models');
+const { Movie } = require('../../models')
 const userSearch = 'Jaws'
 const url = 'https://movie-database-alternative.p.rapidapi.com/?s='+userSearch+'&r=json&page=1';
 const options = {
@@ -15,8 +14,11 @@ const options = {
 async function fetchData() {
   try {
     const response = await fetch(url, options);
-    const result = await response.text();
+    const result = await response.json();
     console.log(result);
+
+
+    console.log(result.search[0])
   } catch (error) {
     console.error(error);
   }
@@ -24,4 +26,3 @@ async function fetchData() {
 
 fetchData();
 module.exports = Movie;
-
