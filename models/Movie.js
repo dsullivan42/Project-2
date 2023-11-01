@@ -1,6 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
+
+
+
+
 class Movie extends Model {}
 
 Movie.init(
@@ -53,6 +57,5 @@ Movie.init(
 
 //   loop: true,
 // });
-
 
 module.exports = Movie;

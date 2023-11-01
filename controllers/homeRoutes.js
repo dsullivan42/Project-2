@@ -7,6 +7,19 @@ router.get('/',  (req, res) => {
  res.render('homepage');
 });
 
+router.get("/movie", async (req, res) => {
+  try {
+    const movieData = await Movie.findAll();
+    const movies = movieData.map((movie) => movie.get({plain: true}));
+    res.render('movie', {
+      movies,
+      // logged_in: req.session.logged_in
+    })
+  } catch(err) {
+    res.status(500).json(err);
+  }
+});
+
 //might be better to rewrite the code below to be a search function
 // router.get('/movies/:id', async (req, res) => {
 //   try {
@@ -77,6 +90,15 @@ router.get('/movies', async (req, res) => {
   } catch (err) {
     res.status(500).json(err);
   }
+});
+
+router.get('/signup', (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect('/profile');
+    return;
+  }
+
+  res.render('signup');
 });
 
 module.exports = router;
