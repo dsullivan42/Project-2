@@ -7,15 +7,16 @@
   <title>Review a Movie</title>
   <link rel="stylesheet" href="/css/jass.css">
   <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
 </head>
 
 <body>
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <a href="/">Review a Movie</a>
+        <a class="has-text-danger-dark is-size-3" href="/">Review a Movie</a>
       </h1>
-      {{#if loggedIn}}
+      {{#if logged_in}}
       <form action="/search" method="get">
         <input type="text" name="query" id="search-input" placeholder="Search..." onkeypress="return event.key != 'Enter';">
         <button type="submit">Search</button>
@@ -25,10 +26,10 @@
       <nav>
         <!-- Conditionally render login or logout links -->
         {{#if logged_in}}
-        <a href="/profile">Profile</a> |
+        <a class="has-text-danger-dark" href="/profile">Profile</a> |
         <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a href="/login">Login</a>
+        <a class="has-text-danger-dark" href="/login">Login</a>
         {{/if}}
       </nav>
     </header>

@@ -30,6 +30,8 @@ const sess = {
 
 app.use(session(sess));
 
+// app.use('/bulma', express.static(__dirname + '/node_modules/bulma/css/'));
+
 // Inform Express.js on which template engine to use
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
