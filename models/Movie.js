@@ -1,5 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+// const { User, Movie } = require('../models');
+
+
+
 
 
 
@@ -66,15 +70,16 @@ Movie.init(
   }
 );
 
-// bulmaCarousel.attach('#carousel', {
-//   slidesToScroll: 1,
+bulmaCarousel.attach('#carousel', {
+  slidesToScroll: 1,
 
-//   slidestoShow: 4,
+  slidestoShow: 4,
 
-//   navigation: true,
+  navigation: true,
 
-//   loop: true,
-// });
+  loop: true,
+});
+
 
 module.exports = Movie;
 
