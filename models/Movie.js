@@ -59,4 +59,3 @@ Movie.init(
 // });
 
 module.exports = Movie;
-
