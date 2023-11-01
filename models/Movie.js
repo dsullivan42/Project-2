@@ -1,9 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-// const { User, Movie } = require('../models');
-
-
-
 
 
 
@@ -36,29 +32,11 @@ Movie.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    name: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    description: {
+
+    type: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
-      allowNull: false,
-      defaultValue: DataTypes.NOW,
-    },
-    needed_funding: {
-      type: DataTypes.FLOAT,
-      allowNull: false,
-    },
-    user_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'user',
-        key: 'id',
-      },
-    },
+  
   },
   {
     sequelize,
@@ -66,7 +44,7 @@ Movie.init(
     freezeTableName: true,
     underscored: true,
 
-    modelName: 'movie',
+    modelName: 'Movie',
   }
 );
 
@@ -79,7 +57,6 @@ Movie.init(
 
 //   loop: true,
 // });
-
 
 module.exports = Movie;
 

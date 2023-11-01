@@ -1,9 +1,8 @@
-
 const fetch = require('node-fetch');
 const router = require('express').Router();
 const { Movie } = require('../../models')
 const movieData = []
-const userSearch = 'Jaws'
+const userSearch = 'Frozen'
 const url = 'https://movie-database-alternative.p.rapidapi.com/?s='+userSearch+'&r=json&page=1';
 const options = {
   method: 'GET',
@@ -13,55 +12,34 @@ const options = {
   }
 };
 
-// async function fetchData() {
-//   try {
-//     const response = await fetch(url, options);
-//     const result = await response.json();
-//     // const jsonResults = result.json();
-//     // console.log(jsonResults)
-//     result.Search.forEach(movie => {
-//       // Create an object for each movie and push it into the array
-//       movieData.push({
-//         Title: movie.Title,
-//         Year: movie.Year,
-//         imdbID: movie.imdbID,
-//         Type: movie.Type,
-//         Poster: movie.Poster
-//       });
 
-//     });
-//     console.log(movieData)
-//     // make post request to api/movie
-    
-    
-//   } catch (error) {
-//     console.error(error);
-//   }
-// }
-
-router.post('/api/movie', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
     const response = await fetch(url, options);
     const result = await response.json();
-    // const jsonResults = result.json();
-    // console.log(jsonResults)
+
+    // Clear the movieData array before populating it
+    movieData.length = 0;
+
     result.Search.forEach(movie => {
       // Create an object for each movie and push it into the array
       movieData.push({
-        Title: movie.Title,
-        Year: movie.Year,
-        imdbID: movie.imdbID,
-        Type: movie.Type,
-        Poster: movie.Poster
+        title: movie.Title,
+        poster: movie.Poster,
+        release_date: movie.Year,
+        imdb_id: movie.imdbID,
+        type: movie.Type,
       });
-
     });
+    
+    const createdMovies = await Movie.bulkCreate(movieData)
 
+    // Respond with the populated movieData array
+    res.json(createdMovies);
   } catch (err) {
     res.status(400).json(err);
   }
 });
 
-// fetchData();
-module.exports = Movie;
+module.exports = router; 
 
