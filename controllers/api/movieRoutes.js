@@ -1,3 +1,4 @@
+
 const fetch = require('node-fetch');
 const router = require('express').Router();
 const { Movie } = require('../../models')
@@ -63,3 +64,4 @@ router.post('/api/movie', async (req, res) => {
 
 // fetchData();
 module.exports = Movie;
+
