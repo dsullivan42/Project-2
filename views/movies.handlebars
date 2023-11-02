@@ -1,11 +1,6 @@
 <div class="home-page">
     <div class="movie-card">
-        <p>Movie Title</p>
-        <p>type</p>
-        <img src="" alt="">
-        <p>Year</p>
-        {{!-- Need to add link to img --}}
-        <p>ID</p>
+        
 <ul id="movieList">
    {{#each movies}}
       <li>
@@ -15,6 +10,7 @@
          <p>Type: {{type}}</p>
          <img src="{{poster}}" alt="{{title}} Poster">
       </li>
+      <button onclick="saveToProfileButtonHandler(specificMovieData)">Rate This Movie!</button>
    {{/each}}
 </ul>
     </div>
