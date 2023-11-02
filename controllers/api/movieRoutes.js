@@ -38,6 +38,7 @@ router.post('/', async (req, res) => {
         type: movie.Type,
       });
     });
+
     console.log(movieData);
     const createdMovies = await Movie.bulkCreate(movieData)
 
@@ -47,5 +48,6 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
 
 module.exports = router; 
