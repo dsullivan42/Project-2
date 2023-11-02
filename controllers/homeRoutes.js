@@ -4,7 +4,9 @@ const withAuth = require('../utils/auth');
 
 router.get('/',  (req, res) => {
   
- res.render('homepage');
+ res.render('homepage', {
+    loggedIn: req.session.loggedIn
+ });
 });
 
 router.get("/movie", async (req, res) => {
@@ -13,7 +15,7 @@ router.get("/movie", async (req, res) => {
     const movies = movieData.map((movie) => movie.get({plain: true}));
     res.render('movie', {
       movies,
-      // logged_in: req.session.logged_in
+      loggedIn: req.session.loggedIn
     })
   } catch(err) {
     res.status(500).json(err);
@@ -36,7 +38,7 @@ router.get("/movie", async (req, res) => {
 
 //     res.render('movie', {
 //       ...movie,
-//       logged_in: req.session.logged_in
+//       loggedIn: req.session.loggedIn
 //     });
 //   } catch (err) {
 //     res.status(500).json(err);
@@ -56,7 +58,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
     res.render('profile', {
       ...user,
-      logged_in: true
+      loggedIn: req.session.loggedIn
     });
   } catch (err) {
     res.status(500).json(err);
@@ -65,7 +67,7 @@ router.get('/profile', withAuth, async (req, res) => {
 
 router.get('/login', (req, res) => {
   // If the user is already logged in, redirect the request to another route
-  if (req.session.logged_in) {
+  if (req.session.loggedIn) {
     res.redirect('/profile');
     return;
   }
@@ -85,20 +87,11 @@ router.get('/movies', async (req, res) => {
     console.log(movies);
     res.render('movies', { 
       movies, 
-      // logged_in: req.session.logged_in 
+      loggedIn: req.session.loggedIn 
     });
   } catch (err) {
     res.status(500).json(err);
   }
-});
-
-router.get('/signup', (req, res) => {
-  if (req.session.logged_in) {
-    res.redirect('/profile');
-    return;
-  }
-
-  res.render('signup');
 });
 
 module.exports = router;
