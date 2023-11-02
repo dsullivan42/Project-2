@@ -2,8 +2,8 @@ const fetch = require('node-fetch');
 const router = require('express').Router();
 const { Movie } = require('../../models')
 const movieData = []
-const userSearch = 'Frozen'
-const url = 'https://movie-database-alternative.p.rapidapi.com/?s='+userSearch+'&r=json&page=1';
+
+
 const options = {
   method: 'GET',
   headers: {
@@ -15,10 +15,17 @@ const options = {
 
 router.post('/', async (req, res) => {
   try {
+    const userSearch = req.body.searchTerm; // Get the user's search term from the request body
+    console.log(userSearch);
+    if (!userSearch) {
+      return res.status(400).json({ error: "Missing search term" });
+    }
+
+    const url = `https://movie-database-alternative.p.rapidapi.com/?s=${userSearch}&r=json&page=1`;
+
     const response = await fetch(url, options);
     const result = await response.json();
 
-    // Clear the movieData array before populating it
     movieData.length = 0;
 
     result.Search.forEach(movie => {
@@ -31,7 +38,8 @@ router.post('/', async (req, res) => {
         type: movie.Type,
       });
     });
-    
+
+    console.log(movieData);
     const createdMovies = await Movie.bulkCreate(movieData)
 
     // Respond with the populated movieData array
@@ -41,5 +49,5 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router; 
 
+module.exports = router; 

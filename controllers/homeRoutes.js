@@ -2,29 +2,9 @@ const router = require('express').Router();
 const { Movie , User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
-  try {
-    // Get all movies and JOIN with user data
-    const movieData = await Movie.findAll({
-      include: [
-        {
-          model: User,
-          attributes: ['name'],
-        },
-      ],
-    });
-
-    // Serialize data so the template can read it
-    const movies = movieData.map((movie) => movie.get({ plain: true }));
-
-    // Pass serialized data and session flag into template
-    res.render('homepage', { 
-      movies, 
-      logged_in: req.session.logged_in 
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+router.get('/',  (req, res) => {
+  
+ res.render('homepage');
 });
 
 router.get("/movie", async (req, res) => {
@@ -38,7 +18,7 @@ router.get("/movie", async (req, res) => {
   } catch(err) {
     res.status(500).json(err);
   }
-})
+});
 
 //might be better to rewrite the code below to be a search function
 // router.get('/movies/:id', async (req, res) => {
@@ -91,6 +71,25 @@ router.get('/login', (req, res) => {
   }
 
   res.render('login');
+});
+
+router.get('/movies', async (req, res) => {
+  try {
+    // Get all movies and JOIN with user data
+    const movieData = await Movie.findAll();
+
+    // Serialize data so the template can read it
+    const movies = movieData.map((movie) => movie.get({ plain: true }));
+
+    // Pass serialized data and session flag into template
+    console.log(movies);
+    res.render('movies', { 
+      movies, 
+      // logged_in: req.session.logged_in 
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get('/signup', (req, res) => {
