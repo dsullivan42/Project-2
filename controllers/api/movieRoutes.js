@@ -26,6 +26,9 @@ router.post('/', async (req, res) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
+    // Clear out the movieData array
+    await Movie.destroy ({ where: {}});
+    
     movieData.length = 0;
 
     result.Search.forEach(movie => {
