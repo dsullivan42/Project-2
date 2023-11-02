@@ -1,20 +1,17 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Movies</title>
-</head>
-<body>
-  <h1>Movies</h1>
-  <ul>
-    {{#each movies}}
+<div class="home-page">
+    <div class="movie-card">
+        
+<ul id="movieList">
+   {{#each movies}}
       <li>
-        <h2>{{this.title}}</h2>
-        <img src="{{this.poster}}" alt="{{this.title}}">
-        <p>Release Date: {{this.release_date}}</p>
-        <p>IMDb ID: {{this.imdb_id}}</p>
-        <p>Type: {{this.type}}</p>
+         <h3>{{title}}</h3>
+         <p>Year: {{release_date}}</p>
+         <p>IMDb ID: {{imdb_id}}</p>
+         <p>Type: {{type}}</p>
+         <img src="{{poster}}" alt="{{title}} Poster">
       </li>
-    {{/each}}
-  </ul>
-</body>
-</html>
+      <button id='rateMovie' Rate Movie!></button>
+   {{/each}}
+</ul>
+    </div>
+</div>
