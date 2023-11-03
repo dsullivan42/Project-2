@@ -16,22 +16,17 @@
       <h1>
         <a class="has-text-danger-dark" href="/">Review a Movie</a>
       </h1>
-      {{!-- {{#if logged_in}} --}}
 
-      <form id="search-form">
+        {{#if loggedIn}}
+        <nav>
+        <form id="search-form">
         <input type="text" id="search-input" placeholder="Search...">
         <button type="submit">Search</button>
-      </form>
-      {{!-- {{/if}} --}}
-
-      <nav>
-        <!-- Conditionally render login or logout links -->
-        {{#if loggedIn}}
+        </form>
         <a class="has-text-danger-dark" href="/profile">Profile</a> |
         <button class="no-button" id="logout">Logout</button>
         {{else}}
         <a class="has-text-danger-dark" href="/login">Login</a>
-        <a class="has-text-danger-dark" href="/signup">Signup</a>
         {{/if}}
       </nav>
     </header>
@@ -40,7 +35,7 @@
       {{{ body }}}
     </main>
     <footer>
-
+      
     </footer>
   </div>
 
@@ -52,150 +47,4 @@
 <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
 <script src="/js/search.js"></script>
 <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Cards List - Bulma Templates</title>
-  <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
-  <script src="https://kit.fontawesome.com/7dc3015a44.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
-  <link rel="stylesheet" href="../css/cards.css">
-  <style>
-    ::-webkit-scrollbar {
-      height: 10px;
-      width: 10px
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #efefef;
-      border-radius: 6px
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #d5d5d5;
-      border-radius: 6px
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #c4c4c4
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- START NAV -->
-  <nav class="navbar">
-    <div class="container">
-      <div class="navbar-brand">
-        <header class="display-flex justify-space-between align-center p-2">
-          <h1>
-            <a class="has-text-danger-dark is-size-2" href="/">Review a Movie</a>
-          </h1>
-          <span class="navbar-burger burger" data-target="navbarMenu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </span>
-      </div>
-      <div class="field is-centered">
-        <p class="control has-icons-left">
-          <input class="input" type="text" placeholder="Search a title">
-        </p>
-      </div>
-      <div class="field is-centered">
-        <p class="control">
-          <button class="button is-success ">
-            Search
-          </button>
-        </p>
-      </div>
-      </form>
-      <div id="navbarMenu" class="navbar-menu">
-        <div class="navbar-end">
-          <a class="navbar-item is-active " href="/login">
-            Login
-          </a>
-          <a class="navbar-item" href="/signup">
-            Signup
-          </a>
-          </a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <!-- END NAV -->
-
-  <div class="container">
-    <div class="section">
-      <div class="columns">
-        <div class="column has-text-centered">
-          <h1 class="title" style="color: ghostwhite;">Give movies a star rating</h1><br>
-        </div>
-      </div>
-      <div id="app" class="row columns is-multiline">
-        <div v-for="card in cardData" key="card.id" class="column is-4">
-          <div class="card large">
-            <div class="card-image">
-              <figure class="image is-16by9">
-                <img src="{{poster}}" alt="{{title}} Poster">
-              </figure>
-            </div>
-            <div class="media-content">
-              <p class="title is-4 no-padding">{{title}}</p>
-              <p>
-                <span class="title is-6">
-                  <a> {{release_date}} </a> </span>
-              </p>
-              <p class="subtitle is-6">{{imdb_id}}</p>
-            </div>
-          </div>
-          <div class="content">
-            {{card.content}}
-            <div class="background-icon"><span class="icon-twitter"></span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  </div>
-  </div>
-  <footer class="footer">
-    <div class="container">
-      <div class="content has-text-centered">
-        <div class="soc">
-          <a href="#"><i class="fa fa-github-alt fa-lg" aria-hidden="true"></i></a>
-          <a href="#"><i class="fa fa-youtube fa-lg" aria-hidden="true"></i></a>
-          <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
-          <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
-        </div>
-        <p>
-          <strong>Bulma</strong> by <a href="http://jgthms.com">Jeremy Thomas</a>.
-          The source code is licensed <a href="http://opensource.org/licenses/mit-license.php">MIT</a>. <br>
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <script src="../js/cardsData.js"></script>
-
-  <!-- Using Vue to populate cards to reduce redundant code -->
-  <script>
-    var app = new Vue({
-      el: '#app',
-      data: {
-        cardData: cardsData
-      }
-    })
-
-  </script>
-</body>
-
 </html>
