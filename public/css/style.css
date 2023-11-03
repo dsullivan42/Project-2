@@ -17,11 +17,7 @@ header, .project:not(:last-child) {
   text-decoration: underline;
 }
 
-.dollar-amount {
-  color: #056605;
-  font-weight: bold;
-  margin-left: -5px;
-}
+
 
 .carousel {
   overflow: hidden;
@@ -38,7 +34,7 @@ header, .project:not(:last-child) {
   color: black;
 }
 body,footer {
-  background-color: rgb(150, 0, 170);
+  background-color: rgb(251, 249, 252);
   padding: 50%;
 }
 
@@ -56,4 +52,8 @@ body,footer {
 .rating-list {
   display: inline-block;
   list-style: none;
+}
+
+.column {
+  width: 25%;
 }
