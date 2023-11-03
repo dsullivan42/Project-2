@@ -1,0 +1,17 @@
+<div class="home-page">
+    <div class="movie-card">
+        
+<ul id="movieList">
+   {{#each movies}}
+      <li>
+         <h3>{{title}}</h3>
+         <p>Year: {{release_date}}</p>
+         <p>IMDb ID: {{imdb_id}}</p>
+         <p>Type: {{type}}</p>
+         <img src="{{poster}}" alt="{{title}} Poster">
+      </li>
+      <button onclick="saveToProfileButtonHandler(specificMovieData)">Rate This Movie!</button>
+   {{/each}}
+</ul>
+    </div>
+</div>

@@ -1,7 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Movie extends Model {}
+
+
+
+
+class ProfileMovie extends Model {}
 
 Movie.init(
 
@@ -40,18 +44,8 @@ Movie.init(
     freezeTableName: true,
     underscored: true,
 
-    modelName: 'Movie',
+    modelName: 'ProfileMovie',
   }
 );
 
-// bulmaCarousel.attach('#carousel', {
-//   slidesToScroll: 1,
-
-//   slidestoShow: 4,
-
-//   navigation: true,
-
-//   loop: true,
-// });
-
-module.exports = Movie;
+module.exports = ProfileMovie;

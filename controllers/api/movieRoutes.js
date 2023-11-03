@@ -16,7 +16,6 @@ const options = {
 router.post('/', async (req, res) => {
   try {
     const userSearch = req.body.searchTerm; // Get the user's search term from the request body
-
     if (!userSearch) {
       return res.status(400).json({ error: "Missing search term" });
     }
@@ -26,6 +25,9 @@ router.post('/', async (req, res) => {
     const response = await fetch(url, options);
     const result = await response.json();
 
+    // Clear out the movieData array
+    await Movie.destroy ({ where: {}});
+    
     movieData.length = 0;
 
     result.Search.forEach(movie => {
@@ -38,7 +40,8 @@ router.post('/', async (req, res) => {
         type: movie.Type,
       });
     });
-    
+
+    console.log(movieData);
     const createdMovies = await Movie.bulkCreate(movieData)
 
     // Respond with the populated movieData array
@@ -48,5 +51,5 @@ router.post('/', async (req, res) => {
   }
 });
 
-module.exports = router; 
 
+module.exports = router; 
