@@ -1,17 +1,48 @@
-<div class="home-page">
-    <div class="movie-card">
+<!-- profile.handlebars -->
 
-        <ul id="movieList">
-            {{#each specificMovieData}}
-            <li>
-                <h3>{{title}}</h3>
-                <p>Year: {{release_date}}</p>
-                <p>IMDb ID: {{imdb_id}}</p>
-                <p>Type: {{type}}</p>
-                <img src="{{poster}}" alt="{{title}} Poster">
-            </li>
-            <button onclick="saveToProfileButtonHandler(specificMovieData)">Rate This Movie!</button>
-            {{/each}}
-        </ul>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 mx-auto">
+      <h2>{{email}}'s Profile</h2>
     </div>
+  </div>
+
+  <div class="row">
+    {{#if RatingMovies}}
+      {{#each RatingMovies}}
+      <figure>
+        <img src="{{poster}}" alt="{{title}} Poster" >
+        </figure>
+        <div class="col-md-6">           
+          <p>IMDb ID: {{imdb_id}}</p>
+          <p>Rating: {{rating}}</p>
+          <p>Title: {{title}}</p>
+        </div>
+      {{/each}}
+    {{else}}
+      <p>No rated movies yet.</p>
+    {{/if}}
+  </div>
 </div>
+
+    {{!-- <div class="column is-one-third">
+      <div class="card">
+        <div class="card-image">
+          <figure class="image">
+            <img src="{{poster}}" alt="{{title}} Poster">
+          </figure>
+        </div>
+        <div class="card-content">
+          <div class="media">
+            <div class="media-content">
+              <p class="title is-4">{{title}}</p>
+              <p class="subtitle is-6">Year: {{release_date}}</p>
+              <p class="subtitle is-6">Type: {{type}}</p>
+            </div>
+          </div>
+        </div>
+        <footer class="card-footer">
+          <a class="add-rating-btn" data-imdbid="{{imdb_id}}" href="/movie/{{imdb_id}}">Rate this movie</a>
+        </footer>
+      </div>
+    </div> --}}

@@ -6,12 +6,11 @@ class Movie extends Model {}
 Movie.init(
 
   {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
+    // id: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    //   // autoIncrement: true,
+    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -26,6 +25,7 @@ Movie.init(
     },
     imdb_id: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
     },
 

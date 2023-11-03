@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Movie , User } = require('../models');
+const { Movie , User, RatingMovie } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/',  (req, res) => {
@@ -13,7 +13,7 @@ router.get("/movie", async (req, res) => {
   try {
     const movieData = await Movie.findAll();
     const movies = movieData.map((movie) => movie.get({plain: true}));
-    res.render('movie', {
+    res.render('movies', {
       movies,
       loggedIn: req.session.loggedIn
     })
@@ -22,6 +22,18 @@ router.get("/movie", async (req, res) => {
   }
 });
 
+router.get("/movie/:id", async (req, res) => {
+  try {
+    const movieData = await Movie.findByPk(req.params.id);
+    const movie = movieData.get({plain: true});
+    res.render('single-movie', {
+      movie,
+      loggedIn: req.session.loggedIn
+    })
+  } catch(err) {
+    res.status(500).json(err);
+  }
+})
 //might be better to rewrite the code below to be a search function
 // router.get('/movies/:id', async (req, res) => {
 //   try {
@@ -51,8 +63,15 @@ router.get('/profile', withAuth, async (req, res) => {
     // Find the logged in user based on the session ID
     const userData = await User.findByPk(req.session.user_id, {
       attributes: { exclude: ['password'] },
-      include: [{ model: Movie }],
+      include: [{ 
+        model: RatingMovie,
+        attributes: ['rating', 'title', 'imdb_id', 'poster']
+       }],
     });
+    if(!userData) {
+      res.status(404).json({message: 'No user found with this id'});
+      return;
+    }
 
     const user = userData.get({ plain: true });
 
