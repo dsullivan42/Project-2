@@ -1,51 +1,51 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+// const { Model, DataTypes } = require('sequelize');
+// const sequelize = require('../config/connection');
 
 
 
 
 
-class ProfileMovie extends Model {}
+// class ProfileMovie extends Model {}
 
-Movie.init(
+// Movie.init(
 
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    title: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    poster: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    release_date: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    imdb_id: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
+//   {
+//     id: {
+//       type: DataTypes.INTEGER,
+//       allowNull: false,
+//       primaryKey: true,
+//       autoIncrement: true,
+//     },
+//     title: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//     poster: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//     release_date: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
+//     imdb_id: {
+//       type: DataTypes.STRING,
+//       allowNull: false,
+//     },
 
-    type: {
-      type: DataTypes.STRING,
-    },
+//     type: {
+//       type: DataTypes.STRING,
+//     },
   
-  },
-  {
-    sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
+//   },
+//   {
+//     sequelize,
+//     timestamps: false,
+//     freezeTableName: true,
+//     underscored: true,
 
-    modelName: 'ProfileMovie',
-  }
-);
+//     modelName: 'ProfileMovie',
+//   }
+// );
 
-module.exports = ProfileMovie;
+// module.exports = ProfileMovie;

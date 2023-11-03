@@ -12,13 +12,12 @@
             <div class="media-content">
               <p class="title is-4">{{title}}</p>
               <p class="subtitle is-6">Year: {{release_date}}</p>
-              <p class="subtitle is-6">IMDb ID: {{imdb_id}}</p>
               <p class="subtitle is-6">Type: {{type}}</p>
             </div>
           </div>
         </div>
         <footer class="card-footer">
-          <a class="card-footer-item" href="#" onclick="saveToProfileButtonHandler(this)">Rate This Movie!</a>
+          <a class="add-rating-btn" data-imdbid="{{imdb_id}}" href="/movie/{{imdb_id}}">Rate this movie</a>
         </footer>
       </div>
     </div>
