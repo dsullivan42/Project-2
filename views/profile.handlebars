@@ -10,7 +10,10 @@
   <div class="row">
     {{#if RatingMovies}}
       {{#each RatingMovies}}
-        <div class="col-md-6">
+      <figure>
+        <img src="{{poster}}" alt="{{title}} Poster" >
+        </figure>
+        <div class="col-md-6">           
           <p>IMDb ID: {{imdb_id}}</p>
           <p>Rating: {{rating}}</p>
           <p>Title: {{title}}</p>

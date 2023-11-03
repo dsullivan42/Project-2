@@ -11,6 +11,10 @@ RatingMovie.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    poster:{
+        type: DataTypes.STRING,
+        allowNull: false,
+        },
     imdb_id: {
       type: DataTypes.STRING,
       allowNull: false,

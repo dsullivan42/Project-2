@@ -15,9 +15,11 @@ let userRating = 0;
 async function sendRatingToBackend(){
    const imdb_id = document.querySelector('.rating').getAttribute('data-imdb_id');
    const movie_title = document.querySelector('#movie-title').textContent;
+   const movie_poster = document.querySelector('#movie-poster').getAttribute('src');
+    console.log(imdb_id, movie_title, movie_poster)
     const response = await fetch(`/api/ratings/${imdb_id}`, {
         method: 'POST',
-        body: JSON.stringify({rating: userRating, title: movie_title}),
+        body: JSON.stringify({rating: userRating, title: movie_title, poster: movie_poster}),
         headers: {
         'Content-Type': 'application/json',
         },

@@ -1,6 +1,6 @@
 const fetch = require('node-fetch');
 const router = require('express').Router();
-const {RatingMovie, Movie} = require('../../models')
+const {RatingMovie} = require('../../models')
 
 
 router.post('/:id', async (req, res) => {
@@ -9,8 +9,10 @@ router.post('/:id', async (req, res) => {
         const imdb_id = req.params.id;
         const rating = req.body.rating;
         const title = req.body.title;
+        const poster= req.body.poster;
         console.log(user_id, imdb_id, rating);
         const createdRating = await RatingMovie.create({
+            poster,
             user_id,
             imdb_id,
             rating,

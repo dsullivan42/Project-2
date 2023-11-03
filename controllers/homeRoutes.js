@@ -65,7 +65,7 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{ 
         model: RatingMovie,
-        attributes: ['rating', 'title', 'imdb_id']
+        attributes: ['rating', 'title', 'imdb_id', 'poster']
        }],
     });
     if(!userData) {
