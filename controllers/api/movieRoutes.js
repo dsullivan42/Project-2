@@ -16,7 +16,6 @@ const options = {
 router.post('/', async (req, res) => {
   try {
     const userSearch = req.body.searchTerm; // Get the user's search term from the request body
-    console.log(userSearch);
     if (!userSearch) {
       return res.status(400).json({ error: "Missing search term" });
     }
