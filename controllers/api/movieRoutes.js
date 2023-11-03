@@ -12,7 +12,7 @@ const options = {
   }
 };
 
-
+// GET all movies from the movie database
 router.post('/', async (req, res) => {
   try {
     const userSearch = req.body.searchTerm; // Get the user's search term from the request body
@@ -50,5 +50,29 @@ router.post('/', async (req, res) => {
     res.status(400).json(err);
   }
 });
+
+
+// Need to add a route to add a movie to the user's profile
+// router.post('/add', async (req, res) => {
+//   try{
+//     const {title, release_date, imdb_id, type, poster} = req.body;
+    
+//     const createdMovie = await Movie.create({
+//       title: title,
+//       release_date: release_date,
+//       imdb_id: imdb_id,
+//       type: type,
+//       poster: poster
+//     });
+
+//     const user_id = req.session.user_id;
+//     await createdMovie.addUser(user_id);
+//     console.log(createdMovie);
+//     res.json(createdMovie);
+//   } catch (err) {
+//     console.log(err);
+//     res.status(500).json({ error: 'Internal Server Error' });
+//   }
+// });
 
 module.exports = router; 

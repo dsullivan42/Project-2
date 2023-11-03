@@ -3,6 +3,7 @@ const User = require('./User');
 const Movie = require('./Movie');
 
 
+
 User.hasMany(Movie, {
   foreignKey: 'user_id',
   onDelete: 'CASCADE'

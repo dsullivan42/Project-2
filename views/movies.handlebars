@@ -1,7 +1,7 @@
 <div class="home-page">
     <div class="movie-card">
         
-<ul id="movieList">
+<ul id="movie-list">
    {{#each movies}}
       <li>
          <h3>{{title}}</h3>
@@ -10,7 +10,8 @@
          <p>Type: {{type}}</p>
          <img src="{{poster}}" alt="{{title}} Poster">
       </li>
-      <button onclick="saveToProfileButtonHandler(specificMovieData)">Rate This Movie!</button>
+      <button class="add-rating-btn" data-imdbid="{{imdb_id}}">Rate this movie!</button>
+      </form>
    {{/each}}
 </ul>
     </div>
