@@ -10,22 +10,7 @@
   <div class="row">
     {{#if RatingMovies}}
       {{#each RatingMovies}}
-      <figure>
-        <img src="{{poster}}" alt="{{title}} Poster" >
-        </figure>
-        <div class="col-md-6">           
-          <p>IMDb ID: {{imdb_id}}</p>
-          <p>Rating: {{rating}}</p>
-          <p>Title: {{title}}</p>
-        </div>
-      {{/each}}
-    {{else}}
-      <p>No rated movies yet.</p>
-    {{/if}}
-  </div>
-</div>
-
-    {{!-- <div class="column is-one-third">
+          <div class="column is-one-third">
       <div class="card">
         <div class="card-image">
           <figure class="image">
@@ -36,13 +21,20 @@
           <div class="media">
             <div class="media-content">
               <p class="title is-4">{{title}}</p>
-              <p class="subtitle is-6">Year: {{release_date}}</p>
+              
+              
               <p class="subtitle is-6">Type: {{type}}</p>
+              <p class="subtitle is-6">Release Date: {{release_date}}</p>
+              <p class="subtitle is-6">Rating: {{rating}}</p>
+              <p class="subtitle is-6">IMDB Id: {{imdb_id}}</p>
             </div>
           </div>
         </div>
-        <footer class="card-footer">
-          <a class="add-rating-btn" data-imdbid="{{imdb_id}}" href="/movie/{{imdb_id}}">Rate this movie</a>
-        </footer>
       </div>
-    </div> --}}
+    </div>
+      {{/each}}
+    {{else}}
+      <p>No rated movies yet.</p>
+    {{/if}}
+  </div>
+</div>

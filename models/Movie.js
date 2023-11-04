@@ -6,11 +6,6 @@ class Movie extends Model {}
 Movie.init(
 
   {
-    // id: {
-    //   type: DataTypes.INTEGER,
-    //   allowNull: false,
-    //   // autoIncrement: true,
-    // },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -28,7 +23,6 @@ Movie.init(
       primaryKey: true,
       allowNull: false,
     },
-
     type: {
       type: DataTypes.STRING,
     },
@@ -43,15 +37,5 @@ Movie.init(
     modelName: 'Movie',
   }
 );
-
-// bulmaCarousel.attach('#carousel', {
-//   slidesToScroll: 1,
-
-//   slidestoShow: 4,
-
-//   navigation: true,
-
-//   loop: true,
-// });
 
 module.exports = Movie;
