@@ -20,12 +20,18 @@
             <div class="hero-body">
                 <div class="container has-text-centered">
                     <div class="column is-6 is-offset-3">
+                        {{#if loggedIn}}
+                        <h2 class="subtitle">
+                            Search a movie and you'll be prompted with a star rating. Rate the movie and it will be added to your profile!
+                        </h2>
+                        {{else}}
                         <h1 class="title">
                             Sign in and start rating movies!
                         </h1>
                         <h2 class="subtitle">
                             Search a movie and you'll be prompted with a star rating. Rate the movie and it will be added to your profile!
                         </h2>
+                        {{/if}}
                     </div>
                 </div>
             </div>
