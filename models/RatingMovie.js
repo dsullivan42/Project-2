@@ -11,6 +11,14 @@ RatingMovie.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    type:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
+    release_date:{
+        type: DataTypes.STRING,
+        allowNull: false,
+    },
     poster:{
         type: DataTypes.STRING,
         allowNull: false,

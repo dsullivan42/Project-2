@@ -1,31 +1,29 @@
 <!-- profile.handlebars -->
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review a Movie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/homepage.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jass.css">
+</head>
+  <section class="hero is-info is-fullheight">
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <h2>{{email}}'s Profile</h2>
+      <h2 id="user-email">{{email}}'s Profile</h2>
     </div>
   </div>
 
   <div class="row">
     {{#if RatingMovies}}
       {{#each RatingMovies}}
-      <figure>
-        <img src="{{poster}}" alt="{{title}} Poster" >
-        </figure>
-        <div class="col-md-6">           
-          <p>IMDb ID: {{imdb_id}}</p>
-          <p>Rating: {{rating}}</p>
-          <p>Title: {{title}}</p>
-        </div>
-      {{/each}}
-    {{else}}
-      <p>No rated movies yet.</p>
-    {{/if}}
-  </div>
-</div>
-
-    {{!-- <div class="column is-one-third">
+          <div class="column is-one-third">
       <div class="card">
         <div class="card-image">
           <figure class="image">
@@ -35,14 +33,21 @@
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">{{title}}</p>
-              <p class="subtitle is-6">Year: {{release_date}}</p>
-              <p class="subtitle is-6">Type: {{type}}</p>
+              <p class="title">{{title}}</p>
+              
+              
+              <p class="movie-details">Type: {{type}}</p>
+              <p class="movie-details">Release Date: {{release_date}}</p>
+              <p class="movie-details">Rating: {{rating}}</p>
             </div>
           </div>
         </div>
-        <footer class="card-footer">
-          <a class="add-rating-btn" data-imdbid="{{imdb_id}}" href="/movie/{{imdb_id}}">Rate this movie</a>
-        </footer>
       </div>
-    </div> --}}
+    </div>
+      {{/each}}
+    {{else}}
+      <p>No rated movies yet.</p>
+    {{/if}}
+  </div>
+</div>
+</section>

@@ -16,10 +16,14 @@ async function sendRatingToBackend(){
    const imdb_id = document.querySelector('.rating').getAttribute('data-imdb_id');
    const movie_title = document.querySelector('#movie-title').textContent;
    const movie_poster = document.querySelector('#movie-poster').getAttribute('src');
-    console.log(imdb_id, movie_title, movie_poster)
+   const movie_release_date = document.querySelector('#movie-release-date').textContent;
+   const movie_type = document.querySelector('#movie-type').textContent;
+
+   console.log(movie_release_date);
+    console.log(movie_type);
     const response = await fetch(`/api/ratings/${imdb_id}`, {
         method: 'POST',
-        body: JSON.stringify({rating: userRating, title: movie_title, poster: movie_poster}),
+        body: JSON.stringify({rating: userRating, title: movie_title, poster: movie_poster, release_date: movie_release_date, type: movie_type}),
         headers: {
         'Content-Type': 'application/json',
         },
@@ -30,4 +34,3 @@ async function sendRatingToBackend(){
         alert(response.statusText);
     }
 }
-

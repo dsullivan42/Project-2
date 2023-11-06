@@ -7,17 +7,15 @@ header, .project:not(:last-child) {
   border: none;
   padding: 0;
   cursor: pointer;
-  color: #1b89bc;
+  color: white;
   text-decoration: none;
   font-size: 100%;
 }
 
 .no-button:hover {
-  color: #065b83;
+  color:whitesmoke;
   text-decoration: underline;
 }
-
-
 
 .carousel {
   overflow: hidden;
@@ -31,10 +29,10 @@ header, .project:not(:last-child) {
 .h2 {
   font-size: 20px;
   font-weight: bold;
-  color: black;
+  color: rgb(0, 0, 0);
 }
 body,footer {
-  background-color: rgb(251, 249, 252);
+  background-color: rgb(0, 0, 0);
   padding: 50%;
 }
 
@@ -56,4 +54,136 @@ body,footer {
 
 .column {
   width: 25%;
+}
+
+h1 {
+  font-size: 40px;
+  color: white;
+}
+
+.login-btn {
+  font-size: 22px;
+}
+
+.profile-btn {
+  font-size:24px;
+}
+
+.page-title {
+  font-size: 30px;
+  color: white;
+}
+
+.form-group {
+  font-size:18px;
+  color: white;
+}
+.login-card {
+  padding:200px;
+  background-color:transparent;
+
+}
+
+.box {
+  background-color:transparent;
+}
+.title {
+  font-weight:bold;
+  font-size: 55px;
+  color: white;
+}
+
+.subtitle {
+  font-weight:bold;
+  font-size: 30px;
+  color: white;
+}
+
+.page-title {
+  font-weight:bold;
+  font-size: 48px;
+  color: white;
+  text-decoration: underline;
+}
+
+.email-label {
+  font-weight:bold;
+  font-size: 28px;
+  color: white;
+}
+
+.password-label {
+  font-weight:bold;
+  font-size: 28px;
+  color: white;
+}
+#signup-btn-press {
+  font-size: 22px;
+  font-weight:bold;
+}
+
+#login-btn-press {
+  font-size: 22px;
+  font-weight:bold;
+}
+
+#logout{
+  font-size: 25px;
+  font-weight:bold;
+}
+
+#search-input {
+  font-size: 23px;
+  font-weight:bold;
+}
+#nav-bar-search-btn{
+  font-size: 23px;
+  font-weight:bold;
+}
+#search-form{
+  margin-right:60px;
+}
+
+.card {
+  background-color:#2d3e50
+}
+
+.card-content{
+  color:white;
+}
+
+.title{
+  text-decoration: underline;
+  font-weight:bold;
+  font-size:30px;
+}
+
+.movie-details{
+  font-weight:bold;
+  font-size:22px;
+  
+}
+
+#star-rating-btn{
+  font-size: 22px;
+  font-weight:bold;
+  width:80%;
+  margin-left:40px;
+}
+.rating{
+  margin-left:20%
+}
+
+.label-for-single{
+  margin:10%;
+  margin-top:30%;
+  font-size:4.0rem;
+  text-align:center;
+  opacity:80%;
+}
+
+#user-email {
+  font-size: 40px;
+  font-weight:bold;
+  opacity: 80%;
 }

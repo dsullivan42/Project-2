@@ -34,28 +34,6 @@ router.get("/movie/:id", async (req, res) => {
     res.status(500).json(err);
   }
 })
-//might be better to rewrite the code below to be a search function
-// router.get('/movies/:id', async (req, res) => {
-//   try {
-//     const movieData = await Movie.findByPk(req.params.id, {
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
-
-//     const movie = movieData.get({ plain: true });
-
-//     res.render('movie', {
-//       ...movie,
-//       loggedIn: req.session.loggedIn
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
 
 // Use withAuth middleware to prevent access to route
 router.get('/profile', withAuth, async (req, res) => {
@@ -65,7 +43,7 @@ router.get('/profile', withAuth, async (req, res) => {
       attributes: { exclude: ['password'] },
       include: [{ 
         model: RatingMovie,
-        attributes: ['rating', 'title', 'imdb_id', 'poster']
+        attributes: ['rating', 'title', 'imdb_id', 'poster', 'type', 'release_date']
        }],
     });
     if(!userData) {

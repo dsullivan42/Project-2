@@ -10,15 +10,17 @@ router.post('/:id', async (req, res) => {
         const rating = req.body.rating;
         const title = req.body.title;
         const poster= req.body.poster;
-        console.log(user_id, imdb_id, rating);
+        const type = req.body.type;
+        const release_date = req.body.release_date;
         const createdRating = await RatingMovie.create({
             poster,
             user_id,
             imdb_id,
             rating,
-            title
+            title,
+            type,
+            release_date
         });
-
         res.status(200).json(createdRating);
     } catch (err) {
         res.status(400).json(err);
