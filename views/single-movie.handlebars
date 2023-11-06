@@ -1,3 +1,18 @@
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review a Movie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/homepage.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jass.css">
+</head>
+
+  <section class="hero is-info is-fullheight">
 <div class="columns is-multiline" id="movie-list">
     <style>
    
@@ -5,8 +20,8 @@
         display: inline-block;
         position: relative;
         width: 1.1em;
-        color: black;
-        font-size: 34px;
+        color: white;
+        font-size: 45px;
     }
     .rating > span.star-filled{
         color: yellow;
@@ -23,9 +38,9 @@
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4" id="movie-title">{{movie.title}}</p>
-              <p class="subtitle is-6" id="movie-release-date">{{movie.release_date}}</p>
-              <p class="subtitle is-6" id="movie-type">{{movie.type}}</p>
+              <p class="title" id="movie-title">{{movie.title}}</p>
+              <p class="movie-details" id="movie-release-date">Release Date: {{movie.release_date}}</p>
+              <p class="movie-details" id="movie-type">Type: {{movie.type}}</p>
             </div>
           </div>
         </div>
@@ -37,12 +52,12 @@
     <span class="star">☆</span>
     <span class="star">☆</span>
      </div>
-     <button onclick="sendRatingToBackend()">Submit Rating</button>
+     <button id="star-rating-btn" onclick="sendRatingToBackend()">Submit Rating</button>
       </div>
     </div>
+    <div class="column is one-third">
+      <h2 class = "label-for-single">Rate your movies to the left and add them to your profile!</h2>
+    </div>
 </div>
-
-
-
-
+</section>
  <script src="/js/rating.js"></script>

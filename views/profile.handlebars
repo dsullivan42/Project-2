@@ -1,9 +1,22 @@
 <!-- profile.handlebars -->
 
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Review a Movie</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/bulma@0.9.4/css/bulma.min.css" />
+    <link rel="stylesheet" type="text/css" href="../css/homepage.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/jass.css">
+</head>
+  <section class="hero is-info is-fullheight">
 <div class="container">
   <div class="row">
     <div class="col-md-6 mx-auto">
-      <h2>{{email}}'s Profile</h2>
+      <h2 id="user-email">{{email}}'s Profile</h2>
     </div>
   </div>
 
@@ -20,13 +33,12 @@
         <div class="card-content">
           <div class="media">
             <div class="media-content">
-              <p class="title is-4">{{title}}</p>
+              <p class="title">{{title}}</p>
               
               
-              <p class="subtitle is-6">Type: {{type}}</p>
-              <p class="subtitle is-6">Release Date: {{release_date}}</p>
-              <p class="subtitle is-6">Rating: {{rating}}</p>
-              <p class="subtitle is-6">IMDB Id: {{imdb_id}}</p>
+              <p class="movie-details">Type: {{type}}</p>
+              <p class="movie-details">Release Date: {{release_date}}</p>
+              <p class="movie-details">Rating: {{rating}}</p>
             </div>
           </div>
         </div>
@@ -38,3 +50,4 @@
     {{/if}}
   </div>
 </div>
+</section>

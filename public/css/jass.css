@@ -5,6 +5,9 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
+header {
+  background-color:#2d3e50;
+}
 html {
   line-height: 1.15;
   /* 1 */
@@ -420,12 +423,13 @@ button {
 }
 
 a {
-  color: #1b89bc;
+  font-weight:bold;
+  color: white;
   text-decoration: none;
 }
 
 a:hover {
-  color: #065b83;
+  color: grey;
   text-decoration: underline;
 }
 
@@ -1098,8 +1102,12 @@ a:hover {
 .card .card-footer {
   border-top: 1px solid #1a1a1a;
   padding: 0.375rem;
+  color: white;
 }
-
+.card-footer{
+  font-size:22px;
+  text-align:center;
+}
 .card.card-rounded {
   border-radius: 0.3rem;
 }

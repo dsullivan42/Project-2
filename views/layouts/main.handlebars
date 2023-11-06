@@ -14,30 +14,26 @@
   <div class="flex-column justify-space-around">
     <header class="display-flex justify-space-between align-center p-2">
       <h1>
-        <a class="has-text-danger-dark" href="/">Review a Movie</a>
+        <a href="/">Review a Movie</a>
       </h1>
 
         {{#if loggedIn}}
         <nav>
-        <form id="search-form">
+        <form class= "display-inline" id="search-form">
         <input type="text" id="search-input" placeholder="Search...">
-        <button type="submit">Search</button>
+        <button id="nav-bar-search-btn"type="submit">Search</button>
         </form>
-        <a class="has-text-danger-dark" href="/profile">Profile</a> |
+        <a class="profile-btn" href="/profile">Profile</a> |
         <button class="no-button" id="logout">Logout</button>
         {{else}}
-        <a class="has-text-danger-dark" href="/login">Login</a>
+        <a class="login-btn" href="/login">Login</a>
         {{/if}}
       </nav>
     </header>
-    <main class="container container-fluid mt-5">
-      <!-- Render the sub layout -->
+       <!-- Render the sub layout -->
       {{{ body }}}
-    </main>
-    <footer>
       
-    </footer>
-  </div>
+</div>
 
   <!-- Render script for logged in users only -->
   {{#if loggedIn}}
